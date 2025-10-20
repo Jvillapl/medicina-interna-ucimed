@@ -6,8 +6,8 @@
   publish = "dist"
 
 [build.environment]
-  # Configuración de Node.js
-  NODE_VERSION = "18"
+  # Configuración de Node.js - Compatible con Vite
+  NODE_VERSION = "20"
 
 # Configuración para Single Page Applications (SPA)
 [[redirects]]
