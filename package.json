@@ -1,13 +1,49 @@
 {
-  "name": "app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "medicina-interna-ucimed",
+  "version": "1.0.0",
+  "description": "Sitio web oficial del Grupo de Interés en Medicina Interna UCIMED - Plataforma educativa para estudiantes de medicina",
+  "private": false,
   "type": "module",
+  "homepage": "https://medicina-interna-ucimed.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TU_USUARIO/medicina-interna-ucimed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TU_USUARIO/medicina-interna-ucimed/issues",
+    "email": "medicinainterna.ucimed@gmail.com"
+  },
+  "author": {
+    "name": "Jose Villaplana",
+    "email": "jose_villa_0299@gmail.com"
+  },
+  "contributors": [
+    "Luis Bonilla <luisboncr@example.com>",
+    "Julia <julia9134@example.com>",
+    "Sofía <_sofiabarrantes@example.com>"
+  ],
+  "keywords": [
+    "medicina",
+    "medicina-interna", 
+    "ucimed",
+    "educacion-medica",
+    "estudiantes",
+    "react",
+    "tailwind",
+    "vite",
+    "netlify"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && netlify deploy --prod --dir=dist"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

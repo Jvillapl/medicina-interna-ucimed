@@ -1,0 +1,51 @@
+{
+  "name": "medicina-interna-ucimed",
+  "version": "1.0.0",
+  "description": "Sitio web oficial del Grupo de Interés en Medicina Interna UCIMED - Plataforma educativa para estudiantes de medicina",
+  "author": {
+    "name": "Jose Villaplana",
+    "email": "jose_villa_0299@gmail.com",
+    "url": "https://github.com/jose-villaplana"
+  },
+  "contributors": [
+    {
+      "name": "Luis Bonilla",
+      "role": "Coordinador",
+      "social": "@luisboncr"
+    },
+    {
+      "name": "Julia",
+      "role": "Subcoordinadora", 
+      "social": "@julia9134"
+    },
+    {
+      "name": "Sofía",
+      "role": "Encargada de Redes",
+      "social": "@_sofiabarrantes"
+    }
+  ],
+  "homepage": "https://medicina-interna-ucimed.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TU_USUARIO/medicina-interna-ucimed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TU_USUARIO/medicina-interna-ucimed/issues",
+    "email": "medicinainterna.ucimed@gmail.com"
+  },
+  "keywords": [
+    "medicina",
+    "medicina-interna", 
+    "ucimed",
+    "educacion-medica",
+    "estudiantes",
+    "react",
+    "tailwind",
+    "netlify"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
