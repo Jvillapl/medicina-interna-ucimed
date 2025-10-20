@@ -12,6 +12,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Toaster, toast } from "sonner";
 import { Calendar, Mail, Newspaper, GraduationCap, ShieldCheck, ExternalLink, Instagram, BookOpen, FileText, Send, Stethoscope } from "lucide-react";
 
+// Importar funciones de Supabase
+import { submitArticle, getSubmissionStats } from './lib/supabase.js';
+
 // ------- Utilidades simples ---------
 const cls = (...c) => c.filter(Boolean).join(" ");
 const todayISO = () => new Date().toISOString().slice(0,10);
@@ -395,18 +398,40 @@ function FormEnviar(){
     ethics: false,
   });
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if(!form.title || !form.authors || !form.summary){
       toast.error("Completa título, autores y resumen");
       return;
     }
+    if(!form.ethics) {
+      toast.error("Debes aceptar la declaración ética");
+      return;
+    }
+    
     setLoading(true);
-    const submission = { ...form, id: crypto.randomUUID(), date: new Date().toISOString() };
-    try{
-      saveSubmission(submission);
-      toast.success("Envío registrado. ¡Gracias! (guardado local)");
-      setForm({ title:"", authors:"", summary:"", keywords:"", doi:"", pdf:"", area:"Cardio", ethics:false });
+    
+    try {
+      // Enviar a Supabase
+      const result = await submitArticle(form);
+      
+      if (result.success) {
+        toast.success("¡Artículo enviado exitosamente! 🎉\nRecibirás confirmación por email.");
+        setForm({ title:"", authors:"", summary:"", keywords:"", doi:"", pdf:"", area:"Cardio", ethics:false });
+        
+        // También guardar localmente como respaldo
+        const submission = { ...form, id: crypto.randomUUID(), date: new Date().toISOString() };
+        saveSubmission(submission);
+      } else {
+        toast.error(`Error al enviar: ${result.error}`);
+        // Si falla Supabase, guardar localmente
+        const submission = { ...form, id: crypto.randomUUID(), date: new Date().toISOString() };
+        saveSubmission(submission);
+        toast.info("Guardado localmente como respaldo");
+      }
+    } catch (error) {
+      toast.error("Error de conexión. Intenta nuevamente.");
+      console.error('Submit error:', error);
     } finally {
       setLoading(false);
     }
@@ -415,7 +440,7 @@ function FormEnviar(){
   return (
     <section id="enviar" className="max-w-3xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold flex items-center gap-2"><BookOpen className="w-6 h-6"/> Proponer artículo científico</h2>
-      <p className="text-muted-foreground mt-1">Para clubes de artículos, reseñas o entradas de blog académico. Los envíos quedan guardados en tu navegador para exportarlos luego o conectarlos a un backend.</p>
+      <p className="text-muted-foreground mt-1">Para clubes de artículos, reseñas o entradas de blog académico. Los envíos se almacenan en nuestra base de datos y el equipo los revisará en breve.</p>
 
       <form onSubmit={onSubmit} className="grid gap-4 mt-6">
         <div className="grid md:grid-cols-2 gap-4">
@@ -473,7 +498,7 @@ function FormEnviar(){
             <FileText className="w-4 h-4 mr-2"/> Exportar envíos
           </Button>
         </div>
-        <p className="text-xs text-muted-foreground">Siguiente paso sugerido: conectar este formulario a Google Sheets, Firebase o un endpoint (Node/Express, Cloud Functions) para recibir envíos del público.</p>
+        <p className="text-xs text-muted-foreground">✅ Base de datos conectada con Supabase. Los envíos se almacenan automáticamente y el equipo recibe notificaciones.</p>
       </form>
     </section>
   );
