@@ -59,6 +59,9 @@ Este proyecto está configurado para deploy automático en **Netlify**:
 - Publish directory: `dist`
 - Redirects configuradas para SPA
 
+**Estado**: ✅ **LIVE** - Accesible globalmente
+**Última actualización**: 20 octubre 2025
+
 ## 👨‍💻 Equipo de Desarrollo
 
 - **Luis Bonilla** - Coordinador (@luisboncr)
