@@ -21,7 +21,7 @@
 ```bash
 # Fork el repositorio en GitHub
 # Luego clona tu fork:
-git clone https://github.com/TU_USUARIO/medicina-interna-ucimed.git
+git clone https://github.com/Jvillapl/medicina-interna-ucimed.git
 cd medicina-interna-ucimed
 npm install
 ```

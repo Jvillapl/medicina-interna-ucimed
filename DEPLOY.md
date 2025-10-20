@@ -21,7 +21,7 @@ git commit -m "Initial commit"
 # 1. Crea un nuevo repositorio en GitHub llamado "medicina-interna-ucimed"
 # 2. Ejecuta estos comandos:
 git branch -M main
-git remote add origin https://github.com/TU_USUARIO/medicina-interna-ucimed.git
+git remote add origin https://github.com/Jvillapl/medicina-interna-ucimed.git
 git push -u origin main
 ```
 
