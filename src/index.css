@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* Estilos globales profesionales */
+:root {
+  --medical-blue: #0066cc;
+  --medical-blue-light: #e6f3ff;
+  --medical-blue-dark: #004499;
+  --accent-green: #00cc66;
+  --warm-gray: #f8fafc;
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #1e293b;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Gradientes personalizados */
+.gradient-medical {
+  background: linear-gradient(135deg, var(--medical-blue) 0%, #0ea5e9 50%, var(--accent-green) 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(14, 165, 233, 0.08) 50%, rgba(0, 204, 102, 0.05) 100%);
+}
+
+/* Efectos de glassmorphism */
+.glass-effect {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(0, 102, 204, 0); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Mejoras tipográficas */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--medical-blue-dark);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--medical-blue) 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enlaces mejorados */
+a {
+  color: var(--medical-blue);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--medical-blue-dark);
+  text-shadow: 0 2px 4px rgba(0, 102, 204, 0.2);
+}
+
+/* Botones con efectos avanzados */
+.btn-primary {
+  background: linear-gradient(135deg, var(--medical-blue) 0%, #0ea5e9 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, var(--medical-blue-dark) 0%, var(--medical-blue) 100%);
+}
+
+/* Cards con efectos profesionales */
+.card-enhanced {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.card-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--medical-blue) 0%, var(--accent-green) 100%);
+}
+
+.card-enhanced:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-large);
+}
+
+/* Efectos de scroll suave */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive mejoras */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .card-enhanced {
+    border-radius: 16px;
+  }
+}
