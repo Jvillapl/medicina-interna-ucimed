@@ -342,7 +342,7 @@ function Equipo(){
     { name: "Luis Bonilla", role: "Coordinador", social: "@luisboncr", color: "from-blue-500 to-blue-600" },
     { name: "Julia", role: "Subcoordinadora", social: "@julia9134", color: "from-purple-500 to-pink-500" },
     { name: "Sofía", role: "Redes", social: "@_sofiabarrantes", color: "from-emerald-500 to-cyan-500" },
-    { name: "Jose Villaplana", role: "Developer", social: "@jose_villa_0299", color: "from-orange-500 to-red-500" },
+    { name: "Jose Villaplana", role: "Developer", social: "@jose_villa_0299", color: "from-orange-500 to-red-500" }, // Actualizado
   ];
   
   return (
